@@ -1,37 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import Sidebar from './components/sidebar/Sidebar';
+import Navbar from './components/navbar/Navbar';
+import MainContent from './components/maincontent/MainContent';
+import Footer from './components/footer/Footer';
+import './App.css';
 
-const App = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Fetch data from the API
-    axios.get('http://localhost/api/test.php')
-      .then(response => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+function App() {
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   return (
-    <div>
-      <h1>API Data</h1>
-      {data ? (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      ) : (
-        <p>No data fetched</p>
-      )}
+    <div className="app-wrapper">
+      <div className="SidebarDiv">
+        <Sidebar onSelectCourse={setSelectedCourse} />
+      </div>
+      <div className="main-layout">
+        <div className="NavbarDiv">
+          <Navbar />
+        </div>
+        <div className="main-content">
+          <MainContent selectedCourse={selectedCourse} />
+        </div>
+        <div className="FooterDiv">
+          <Footer />
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default App;
