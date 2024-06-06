@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const SidebarCursos = ({ onSelectCourse }) => {
+const SidebarCursos = ({ onSelectSidebarElement }) => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -29,8 +29,7 @@ const SidebarCursos = ({ onSelectCourse }) => {
               key={curso.clave}
               className="collapse-item"
               href="#"
-              onClick={() => onSelectCourse(curso)}
-            >
+              onClick={() => onSelectSidebarElement({type: 'curso',value: curso})}>
               {curso.nombre}
             </a>
           ))}

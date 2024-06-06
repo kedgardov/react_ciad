@@ -6,23 +6,14 @@ import Footer from './components/footer/Footer';
 import './App.css';
 
 function App() {
-  const [selectedCourse, setSelectedCourse] = useState(null);
-
+  const [selectedSidebarElement, setSelectedSidebarElement] = useState({ type: null, value: null });
   return (
     <div className="app-wrapper">
-      <div className="SidebarDiv">
-        <Sidebar onSelectCourse={setSelectedCourse} />
-      </div>
+      <Sidebar onSelectSidebarElement={setSelectedSidebarElement}/>
       <div className="main-layout">
-        <div className="NavbarDiv">
-          <Navbar />
-        </div>
-        <div className="main-content">
-          <MainContent selectedCourse={selectedCourse} />
-        </div>
-        <div className="FooterDiv">
-          <Footer />
-        </div>
+        <Navbar />
+        <MainContent selectedSidebarElement={selectedSidebarElement} />
+        <Footer />
       </div>
     </div>
   );
