@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMainSpace, updateSidebarCourses } from '../../actions';
+import { setMainSpace, setSelectedCourse, updateSidebarCourses } from '../../actions';
 
 
 const SidebarCursos = () => {
   const dispatch = useDispatch();
 
   const handleClick = (spaceType,data) => {
-    dispatch(setMainSpace(spaceType,data));
+    dispatch(setMainSpace(spaceType,null));
+    dispatch(setSelectedCourse(data));
   };
 
   const cursos = useSelector((state => state.sidebarCourses.courses.sidebar_cursos));

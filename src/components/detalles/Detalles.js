@@ -6,7 +6,8 @@ import TabContent from '../tabcontent/TabContent';
 
 const Detalles = () => {
 
-  const curso = useSelector(state => state.mainSpace.data);
+  //const curso = useSelector(state => state.mainSpace.data);
+  const curso = useSelector(state => state.selectedCourse);
 
   const dispatch = useDispatch();
   const handleSelectTab = (tabType) => {

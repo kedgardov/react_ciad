@@ -1,0 +1,38 @@
+.seriaciones-form-div {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.seriaciones-form .horizontal-group {
+  display: flex;
+  align-items: flex-start; /* Align items to the start */
+  gap: 10px;
+}
+
+.seriaciones-form .form-group {
+  margin-bottom: 20px;
+}
+
+.seriaciones-form .btn-primary {
+  margin-top: 32px; /* Adjust to align with the dropdown */
+}
+
+.seriaciones-form .table {
+  width: 100%;
+  margin-top: 20px;
+  table-layout: fixed; /* Ensures the columns follow the width specified */
+}
+
+.seriaciones-form .table th, .seriaciones-form .table td {
+  text-align: left;
+  padding: 8px;
+}
+
+.seriaciones-form .table th {
+  background-color: #f8f9fa;
+}
+
+.seriaciones-form .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
