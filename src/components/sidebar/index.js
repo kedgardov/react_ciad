@@ -4,14 +4,15 @@ import SidebarCursos from './SidebarCursos';
 import SidebarConfiguracion from './SidebarConfig';
 import SidebarAyuda from './SidebarAyuda';
 
-const Sidebar = ({onSelectSidebarElement}) => {
+const Sidebar = () => {
+
   return (
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <SidebarTitle />
       <hr className="sidebar-divider my-0" />
-      <SidebarCursos onSelectSidebarElement={onSelectSidebarElement}/>
+      <SidebarCursos />
       <hr className="sidebar-divider my-0" />
-      <SidebarConfiguracion onSelectSidebarElement={onSelectSidebarElement}/>
+      <SidebarConfiguracion />
       <hr className="sidebar-divider my-0" />
       <SidebarAyuda />
       <div className="text-center d-none d-md-inline">

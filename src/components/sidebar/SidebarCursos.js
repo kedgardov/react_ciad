@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setMainSpace } from '../../actions';
 
-const SidebarCursos = ({ onSelectSidebarElement }) => {
-  const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const response = await axios.get('http://localhost/react_ciad/api/cursos/select_all.php');
-        setCourses(response.data.sidebar_cursos);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+const SidebarCursos = () => {
+  const dispatch = useDispatch();
 
-    fetchCourses();
-  }, []);
+  const handleClick = (spaceType,data) => {
+    dispatch(setMainSpace(spaceType,data));
+  };
+
+  const dummyCursos =[
+        {id:1, nombre:'Curso 1',clave:'101'},
+        {id:2, nombre:'Curso 2',clave:'102'},
+        {id:3, nombre:'Curso 3',clave:'103'}];
 
   return (
     <li className="nav-item">
@@ -24,12 +22,13 @@ const SidebarCursos = ({ onSelectSidebarElement }) => {
       </a>
       <div id="collapseCursos" className="collapse" aria-labelledby="headingCursos" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded" id="sidebar-cursos-placeholder">
-          {courses.map((curso) => (
+          {dummyCursos.map((curso) => (
             <a
               key={curso.clave}
               className="collapse-item"
-              href="#"
-              onClick={() => onSelectSidebarElement({type: 'curso',value: curso})}>
+              href='#'
+              onClick={ () => handleClick('curso',curso)}
+            >
               {curso.nombre}
             </a>
           ))}

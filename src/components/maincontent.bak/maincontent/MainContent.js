@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Detalles from '../detalles/Detalles';
 import ModPassword from '../modPassword/ModPassword';
 import ModPerfil from '../modPerfil/ModPerfil';
 import './MainContent.css';
 
 
-const MainContent = ({ selectedSidebarElement }) => {
+const MainContent = ({ selectedSidebarElement, onSelectSidebarElement }) => {
+  const handleSelectCurso = (newCursoValue) => {
+    onSelectSidebarElement({
+      type: 'curso',
+      value: newCursoValue
+    });
+  };
+
+  useEffect( () => {
+    console.log('MainContent->modified selectedSidebarElement');
+  },[selectedSidebarElement]);
+
+
   const renderContent = () => {
     if (!selectedSidebarElement.type) {
       return <div>Nothing Selected Yet</div>;
     }
     if (selectedSidebarElement.type === 'curso') {
-      return <Detalles course={selectedSidebarElement.value} />;
+      return <Detalles selectedCourse={selectedSidebarElement.value} onSelectCurso={handleSelectCurso} />;
     }
     if (selectedSidebarElement.type === 'conf') {
       if (selectedSidebarElement.value === 'modifyPassword') {

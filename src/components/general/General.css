@@ -1,0 +1,36 @@
+.course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.course-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.course-form .form-group label {
+  margin-bottom: 5px;
+}
+
+.course-form .form-group input {
+  padding: 5px;
+}
+
+.course-form .horizontal-group {
+  display: flex;
+  gap: 10px;
+}
+
+.course-form .horizontal-group .form-group {
+  flex: 1;
+}
+.small-form-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.small-form-group input {
+  width: auto;
+}

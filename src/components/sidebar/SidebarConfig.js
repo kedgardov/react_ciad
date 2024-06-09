@@ -1,6 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setMainSpace } from '../../actions';
 
-const SidebarConfiguracion = ({onSelectSidebarElement}) => {
+
+const SidebarConfiguracion = () => {
+
+  const dispatch = useDispatch();
+
+  const handleClick = (data) => {
+    dispatch(setMainSpace('config',data));
+  };
+
   return (
     <li className="nav-item">
       <a className="nav-link" href="#" data-toggle="collapse" data-target="#collapseConfiguracion" aria-expanded="true" aria-controls="collapseConfiguracion">
@@ -11,14 +21,14 @@ const SidebarConfiguracion = ({onSelectSidebarElement}) => {
           <a
             className="collapse-item"
             href="#"
-            onClick={() => onSelectSidebarElement({type:'conf', value:'modifyPassword'})}
+            onClick={() => handleClick('modifyPassword')}
           >
             Cambiar Contraseña
           </a>
           <a
             className="collapse-item"
             href="#"
-            onClick={() => onSelectSidebarElement({type:'conf',value:'modifyDocente'})}
+            onClick={() => handleClick('modifyDocente')}
           >
             Editar Perfil Docente
           </a>

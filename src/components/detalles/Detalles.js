@@ -1,28 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { setTabSpace } from '../../actions';
 import TabContent from '../tabcontent/TabContent';
 
 
-const Detalles = ({ course }) => {
-  const [selectedTab, setSelectedTab] = useState('general');
+const Detalles = () => {
 
-  function handleSelectTab(tabName) {
-    // Remove 'active' class from all elements with class 'nav-link'
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => link.classList.remove('active'));
+  const curso = useSelector(state => state.mainSpace.data);
 
-    // Add 'active' class to the selected element
-    const selectedElement = document.getElementById(tabName);
-    if (selectedElement) {
-      selectedElement.classList.add('active');
-    }
-
-    // Update the selected tab state
-    setSelectedTab(tabName);
+  const dispatch = useDispatch();
+  const handleSelectTab = (tabType) => {
+    dispatch(setTabSpace(tabType,null))
   };
+
+
 
   return (
    <div className="container-fluid">
-    <h1>{course.nombre}</h1>
+    <h1>{curso.nombre}</h1>
      <ul className="nav nav-tabs">
        <li className="nav-item">
          <button className="nav-link"
@@ -43,7 +38,7 @@ const Detalles = ({ course }) => {
          </button>
        </li>
      </ul>
-     <TabContent selectedTab={selectedTab}/>
+     <TabContent/>
    </div>
   );
 };

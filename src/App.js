@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import Sidebar from './components/sidebar/Sidebar';
-import Navbar from './components/navbar/Navbar';
-import MainContent from './components/maincontent/MainContent';
-import Footer from './components/footer/Footer';
+import React from 'react';
+import Sidebar from './components/sidebar';
+import Navbar from './components/navbar';
+import MainContent from './components/maincontent';
+import Footer from './components/footer';
 import './App.css';
 
 function App() {
-  const [selectedSidebarElement, setSelectedSidebarElement] = useState({ type: null, value: null });
+
   return (
     <div className="app-wrapper">
-      <Sidebar onSelectSidebarElement={setSelectedSidebarElement}/>
+      <Sidebar />
       <div className="main-layout">
         <Navbar />
-        <MainContent selectedSidebarElement={selectedSidebarElement} />
+        <MainContent />
         <Footer />
       </div>
     </div>
