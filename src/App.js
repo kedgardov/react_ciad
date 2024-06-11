@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './components/sidebar';
 import Navbar from './components/navbar';
-import MainContent from './components/maincontent';
+import MainSpace from './components/mainSpace';
 import Footer from './components/footer';
 import './App.css';
 
@@ -12,7 +12,7 @@ function App() {
       <Sidebar />
       <div className="main-layout">
         <Navbar />
-        <MainContent />
+        <MainSpace/>
         <Footer />
       </div>
     </div>

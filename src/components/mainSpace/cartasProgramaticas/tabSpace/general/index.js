@@ -1,6 +1,6 @@
 import React from 'react';
-import CursoForm from './cursoForm/CursoForm';
-import SeriacionesForm from './seriacionesForm/SeriacionesForm';
+import CursoForm from './cursoForm';
+import SeriacionesForm from './seriacionesForm';
 
 
 const General = () => {

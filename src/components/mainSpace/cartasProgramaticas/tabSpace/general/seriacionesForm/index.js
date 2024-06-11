@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SeriacionesForm.css';
+import './index.css';
 
 const SeriacionesForm = () => {
   const [selectedRequisito, setSelectedRequisito] = useState('');

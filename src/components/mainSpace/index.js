@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Detalles from '../detalles/Detalles';
-import ModPassword from '../modPassword/ModPassword';
-import ModPerfil from '../modPerfil/ModPerfil';
-import './MainContent.css';
+import CartasProgramaticas from './cartasProgramaticas';
+import Configuraciones from './configuraciones';
+import './index.css';
 
 
 const MainContent = () => {
@@ -14,15 +13,10 @@ const MainContent = () => {
       return <div>Nothing Selected Yet</div>;
     }
     if (mainSpaceContent.spaceType === 'curso') {
-      return <Detalles />;
+      return <CartasProgramaticas />;
     }
     if (mainSpaceContent.spaceType === 'config') {
-      if (mainSpaceContent.data === 'modifyPassword') {
-        return <ModPassword />;
-      }
-      if (mainSpaceContent.data === 'modifyDocente') {
-        return <ModPerfil />;
-      }
+      return <Configuraciones/>
     }
     return <div>Unknown Selection</div>;
   };

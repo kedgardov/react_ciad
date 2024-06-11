@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import General from '../general/General.js';
+import General from './general';
 
 const TabContent = () => {
   const selectedTab = useSelector(state => state.tabSpace.spaceType);

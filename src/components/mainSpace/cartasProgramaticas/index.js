@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { setTabSpace } from '../../actions';
-import TabContent from '../tabcontent/TabContent';
+import { setTabSpace } from '../../../actions';
+import TabSpace from './tabSpace';
 
 
 const Detalles = () => {
@@ -39,7 +39,7 @@ const Detalles = () => {
          </button>
        </li>
      </ul>
-     <TabContent/>
+     <TabSpace/>
    </div>
   );
 };

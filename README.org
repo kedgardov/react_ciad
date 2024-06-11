@@ -1,0 +1,22 @@
+* Front End Plataforma Cargas Programaticas
+
+** Component Structure
+- components/
+  - sidebar/
+  - navbar/
+  - footer/
+  - mainSpace/
+    - cartasProgramaticas/
+      - index.js
+      - tabSpace/
+        - general/
+        - objetivos/
+        - contenido/
+        - evaluacion/
+        - coolaboradores/
+        - fuentes/
+    - configuraciones/
+      - modPassword/
+      - modPerfil/
+    - ayuda/
+      - tutoriales/
