@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CursoForm from './cursoForm';
 import SeriacionesForm from './seriacionesForm';
 import SaveButton from './SaveButton';
@@ -7,8 +7,8 @@ const General = () => {
 
   return (<div className="general-tab">
             <CursoForm />
-            {/*<SeriacionesForm />
-               <SaveButton/>*/}
+            <SeriacionesForm />
+            <SaveButton/>
           </div>
          );
 };
