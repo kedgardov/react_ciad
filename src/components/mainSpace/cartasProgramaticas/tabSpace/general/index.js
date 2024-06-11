@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CursoForm from './cursoForm';
 import SeriacionesForm from './seriacionesForm';
-
+import SaveButton from './SaveButton';
 
 const General = () => {
+
   return (<div className="general-tab">
             <CursoForm />
-            <SeriacionesForm />
-            <button type="button" className="btn btn-primary mt-3" >Modificar Curso</button>
+            {/*<SeriacionesForm />
+               <SaveButton/>*/}
           </div>
          );
 };
