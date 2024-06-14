@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMainSpace, updateSidebarCourses,fetchCurso } from '../../actions';
+import { setMainSpace, getAllCourses ,fetchCurso } from '../../actions';
 
 
 const SidebarCursos = () => {
@@ -11,12 +11,14 @@ const SidebarCursos = () => {
     dispatch(fetchCurso(data));
   };
 
-  const cursos = useSelector((state => state.sidebarCourses.courses));
+  //const cursos = useSelector((state => state.sidebarCourses.courses));
+  const cursos = useSelector((state => state.allCourses.courses));
 
   console.log(cursos);
+
   useEffect(() => {
-    dispatch(updateSidebarCourses());
-  }, []);
+    dispatch(getAllCourses());
+  }, [dispatch]);
 
   if (!cursos || cursos.length === 0) {
     // Display a loading message or fallback UI while courses are being fetched

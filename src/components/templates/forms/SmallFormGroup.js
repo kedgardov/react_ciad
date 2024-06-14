@@ -7,7 +7,7 @@ const SmallFormGroup = ({ label, id, value, onBlur, onChange, readOnly }) => (
       type="text"
       className="form-control"
       id={id}
-      value={value}
+      value={value === null? '' : value}
       onChange={onChange}
       onBlur={onBlur}
       readOnly={readOnly}

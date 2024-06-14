@@ -4,13 +4,21 @@ import tabSpaceReducer from './tabSpaceReducer';
 import selectedCourseReducer from './selectedCourseReducer';
 import sidebarCoursesReducer from './sidebarCoursesReducer';
 import cursoReducer from './cursoReducer';
+import allCoursesReducer from './allCursosReducer';
+import seriacionesReducer from './seriacionesReducer';
+import objetivosReducer from './objetivosReducer';
+
+
 
 const rootReducer = combineReducers({
   mainSpace: mainSpaceReducer,
   tabSpace: tabSpaceReducer,
   selectedCourse: selectedCourseReducer,
   sidebarCourses: sidebarCoursesReducer,
-  curso: cursoReducer
+  curso: cursoReducer,
+  allCourses: allCoursesReducer,
+  seriaciones: seriacionesReducer,
+  objetivos: objetivosReducer
 });
 
 

@@ -26,6 +26,7 @@ const CursoForm = () => {
         <HorizontalGroup>
           <SmallFormGroup
             label="Clave Curso"
+            type="text"
             id="claveCurso"
             value={selectedCourse.clave}
             readOnly={true}

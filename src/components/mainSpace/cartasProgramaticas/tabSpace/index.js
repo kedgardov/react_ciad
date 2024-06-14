@@ -2,6 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import General from './general';
 import Fuentes from './fuentes';
+import Objetivos from './objetivos';
+
+
+
 
 const TabContent = () => {
   const selectedTab = useSelector(state => state.tabSpace.spaceType);
@@ -13,6 +17,9 @@ const TabContent = () => {
     if(selectedTab === 'general'){
       return <General />;
       //return <div>Selected the general tab</div>;
+    }
+    if(selectedTab === 'objetivos'){
+      return <Objetivos/>;
     }
     if(selectedTab === 'unidades'){
       return <div>Selected the unidades tab</div>;

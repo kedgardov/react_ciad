@@ -26,6 +26,7 @@ const Detalles = () => {
       <h1>{curso.nombre}</h1>
       <ul className="nav nav-tabs">
         {createTab('general', handleSelectTab)}
+        {createTab('objetivos',handleSelectTab)}
         {createTab('unidades', handleSelectTab)}
         {createTab('fuentes', handleSelectTab)}
       </ul>

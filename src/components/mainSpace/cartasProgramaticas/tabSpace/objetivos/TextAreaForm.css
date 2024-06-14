@@ -1,0 +1,33 @@
+/* components/TextAreaWithRemove.css */
+.textarea-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.textarea-container textarea {
+  flex: 1;
+  resize: vertical; /* Allows resizing vertically */
+  padding-right: 40px; /* To ensure the text doesn't overlap with the button */
+}
+
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  color: red;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bolder;
+  line-height: 1;
+}
+
+.remove-button:hover {
+  font-weight: bolder;
+  border:red
+}
