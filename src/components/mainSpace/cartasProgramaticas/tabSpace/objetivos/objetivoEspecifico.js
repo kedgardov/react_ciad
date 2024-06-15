@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+// components/ObjetivoEspecifico.js
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addObjetivo, fetchCurso, fetchObjetivos, removeObjetivo,updateObjetivo, updateObjetivoInDatabase } from '../../../../../actions';
+import { addObjetivo, fetchObjetivos, removeObjetivo, updateObjetivo, updateObjetivoInDatabase } from '../../../../../actions';
 import TextAreaWithRemove from './TextArea';
 import Objetivo from '../../../../../classes/Objetivo';
 import './index.css';
 
 const ObjetivoEspecifico = () => {
   const dispatch = useDispatch();
-  const objetivos = useSelector(state => state.objetivos.objetivos);
+  const objetivos = useSelector(state => state.objetivos.objetivosEspecificos);
   const selectedCourse = useSelector(state => state.curso);
-
 
   useEffect(() => {
     if (selectedCourse && selectedCourse.id_curso) {
@@ -21,7 +21,6 @@ const ObjetivoEspecifico = () => {
     const newObjetivo = new Objetivo(null, selectedCourse.id_curso, 'especifico', numero, '');
     console.log(newObjetivo);
     dispatch(addObjetivo(newObjetivo));
-
   };
 
   const handleRemove = (objetivo) => {
@@ -39,8 +38,6 @@ const ObjetivoEspecifico = () => {
     console.log(objetivo);
     dispatch(updateObjetivoInDatabase(objetivo)); // Persist changes to the database
   };
-
-
 
   return (
     <div className="objetivo-especifico-form">
