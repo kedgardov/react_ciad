@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import General from './general';
 import Fuentes from './fuentes';
 import Objetivos from './objetivos';
-
+import Contenido from './contenido';
 
 
 
@@ -20,6 +20,9 @@ const TabContent = () => {
     }
     if(selectedTab === 'objetivos'){
       return <Objetivos/>;
+    }
+    if(selectedTab === 'contenido'){
+      return <Contenido/>;
     }
     if(selectedTab === 'unidades'){
       return <div>Selected the unidades tab</div>;

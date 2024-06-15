@@ -27,7 +27,7 @@ const Detalles = () => {
       <ul className="nav nav-tabs">
         {createTab('general', handleSelectTab)}
         {createTab('objetivos',handleSelectTab)}
-        {createTab('unidades', handleSelectTab)}
+        {createTab('contenido',handleSelectTab)}
         {createTab('fuentes', handleSelectTab)}
       </ul>
       <TabSpace />

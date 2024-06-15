@@ -6,3 +6,4 @@ export * from './cursoActions';
 export * from './seriacionesActions';
 export * from './allCursosActions';
 export * from './objetivosActions';
+export * from './unidadesActions';

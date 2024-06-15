@@ -1,0 +1,78 @@
+.table {
+  width: 100%;
+}
+
+.numero-cell, .horas-sesion-cell {
+  white-space: nowrap; /* Ensure the cell takes only the space needed */
+}
+
+.numero-header, .horas-sesion-header {
+  text-align: left;
+  white-space: nowrap; /* Ensure the header text stays on one line */
+}
+
+.numero-cell, .nombre-header, .nombre-cell {
+  text-align: left;
+}
+
+.horas-sesion-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  position: relative; /* Make the parent element a positioning context */
+}
+
+.horas-sesion-cell .ellipsis-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: gray;
+  margin-left: auto;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: none; /* Hide by default */
+  background-color: white;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  z-index: 1000;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.dropdown-divider {
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid #e9ecef;
+}

@@ -7,6 +7,7 @@ import cursoReducer from './cursoReducer';
 import allCoursesReducer from './allCursosReducer';
 import seriacionesReducer from './seriacionesReducer';
 import objetivosReducer from './objetivosReducer';
+import unidadesReducer from './unidadesReducer';
 
 
 
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   curso: cursoReducer,
   allCourses: allCoursesReducer,
   seriaciones: seriacionesReducer,
-  objetivos: objetivosReducer
+  objetivos: objetivosReducer,
+  unidades: unidadesReducer
 });
 
 
