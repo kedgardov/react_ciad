@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DropdownMenu from './DropdownMenu';
 import Modal from './Modal';
 import './index.css';
@@ -6,19 +6,21 @@ import './index.css';
 const Unidad = ({ unidad }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalSpace, setModalSpace] = useState(null);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
   const handleDetallesClick = () => {
-    //Make a ModalSpaceReducer that can be controlled from here
-    // Modal Space loads component accordingly and that is what gets toggled
+    setModalSpace('detalles');
     setDropdownVisible(false);
     setModalVisible(true);
   };
 
   const handleTemasClick = () => {
+    setModalSpace('temas');
     setDropdownVisible(false);
     setModalVisible(true);
   };
@@ -26,6 +28,24 @@ const Unidad = ({ unidad }) => {
   const closeModal = () => {
     setModalVisible(false);
   };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    if (dropdownVisible) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownVisible]);
 
   return (
     <>
@@ -38,11 +58,18 @@ const Unidad = ({ unidad }) => {
             <i className="fas fa-ellipsis-v"></i>
           </button>
           {dropdownVisible && (
-            <DropdownMenu onDetallesClick={handleDetallesClick} onTemasClick={handleTemasClick} />
+            <div ref={dropdownRef}>
+              <DropdownMenu onDetallesClick={handleDetallesClick} onTemasClick={handleTemasClick} />
+            </div>
           )}
         </td>
       </tr>
-      <Modal show={modalVisible} onClose={closeModal} unidad={unidad} />
+      <Modal
+        show={modalVisible}
+        onClose={closeModal}
+        modalSpace={modalSpace}
+        unidad={unidad}
+      />
     </>
   );
 };

@@ -1,11 +1,12 @@
 import React from 'react';
 //import './DropdownMenu.css';
 
-const DropdownMenu = ({ onDetallesClick, onTemasClick }) => {
+const DropdownMenu = ({ onDetallesClick, onTemasClick, onDeleteClick }) => {
   return (
     <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in show">
-      <a className="dropdown-item" href="#" onClick={onDetallesClick}>Detalles</a>
-      <a className="dropdown-item" href="#" onClick={onTemasClick}>Temas</a>
+      <button className="dropdown-item" href="#" onClick={onDetallesClick}>Detalles</button>
+      <button className="dropdown-item" href="#" onClick={onTemasClick}>Temas</button>
+      <button className="dropdown-item" href="#" onClick={onDeleteClick}>Eliminar</button>
     </div>
   );
 };

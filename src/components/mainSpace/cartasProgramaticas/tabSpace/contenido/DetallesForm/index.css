@@ -1,0 +1,56 @@
+.course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 5px;
+}
+
+.horizontal-group {
+  display: flex;
+  gap: 10px;
+}
+
+.small-form-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.small-form-group input {
+  width: auto;
+}
+
+.horizontal-dropdown-form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontal-dropdown-form-group label {
+  margin-bottom: 0;
+}
+
+.objetivo-section,
+.actividades-section,
+.evidencias-section {
+  margin-bottom: 20px;
+}
+
+.actividad,
+.evidencia {
+  flex: 1;
+}

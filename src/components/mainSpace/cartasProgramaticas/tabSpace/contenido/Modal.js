@@ -1,11 +1,23 @@
 import React from 'react';
 import './modal.css';
 import Temas from './Temas';
+import Detalles from './DetallesForm';
 
-const Modal = ({ show, onClose, unidad }) => {
+const Modal = ({ show, onClose, modalSpace, unidad }) => {
   if (!show) {
     return null;
   }
+
+  const setModalContent = (modalSpace) => {
+    switch(modalSpace){
+      case 'temas':
+        return <Temas unidad={unidad}/>;
+      case 'detalles':
+        return <Detalles unidad={unidad}/>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="modal show" onClick={onClose}>
@@ -18,7 +30,7 @@ const Modal = ({ show, onClose, unidad }) => {
             </button>
           </div>
           <div className="modal-body">
-           <Temas/>
+           {setModalContent(modalSpace)}
           </div>
         </div>
       </div>
