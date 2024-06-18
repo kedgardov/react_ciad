@@ -12,3 +12,4 @@ export * from './colaboradoresActions';
 export * from './fuentesActions';
 export * from './selectedFuenteTypeActions';
 export * from './autoresActions';
+export * from './sessionActions';

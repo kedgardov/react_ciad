@@ -13,7 +13,7 @@ import colaboradoresReducer from './colaboradoresReducer';
 import fuentesReducer from './fuentesReducer';
 import selectedFuenteTypeReducer from './selectedFuenteType';
 import autoresReducer from './autoresReducer';
-
+import sessionReducer from './sessionReducer';
 
 const rootReducer = combineReducers({
   mainSpace: mainSpaceReducer,
@@ -29,7 +29,8 @@ const rootReducer = combineReducers({
   colaboradores: colaboradoresReducer,
   fuentes: fuentesReducer,
   selectedFuenteType: selectedFuenteTypeReducer,
-  autores: autoresReducer
+  autores: autoresReducer,
+  session: sessionReducer
 });
 
 
