@@ -1,52 +1,66 @@
-// LoaderWithTransition.js
 import React, { useState, useEffect } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import './spinner.css';
-import './transition.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchFuentes, addFuente } from '../../../../../actions/fuentesActions';
+import Modal from './Modal';
+import AddFuenteForm from './AddFuenteForm';
+import Fuente from '../../../../../classes/Fuente';
 
-const Spinner = () => {
-  return <div className="spinner"></div>;
-};
 
-const NextComponent = () => {
-  return (
-    <div>
-      <h1>Welcome to the Next Component!</h1>
-    </div>
-  );
-};
-
-const LoaderWithTransition = () => {
-  const [loading, setLoading] = useState(true);
+const Fuentes = () => {
+  const dispatch = useDispatch();
+  const selectedCourse = useSelector(state => state.curso);
+  const fuentes = useSelector(state => state.fuentes.fuentes);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentFuente, setCurrentFuente] = useState(new Fuente());
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000); // Simulate a 5-second loading time
+    if (selectedCourse && selectedCourse.id_curso) {
+      dispatch(fetchFuentes(selectedCourse.id_curso));
+    }
+  }, [dispatch, selectedCourse]);
 
-    return () => clearTimeout(timer);
-  }, []);
+  const openModal = () => {
+    setCurrentFuente(new Fuente());
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleAddFuente = () => {
+    dispatch(addFuente(currentFuente));
+    closeModal();
+  };
+
+  const handleEditFuente = (fuente) => {
+    setCurrentFuente(fuente);
+    setIsModalOpen(true);
+  };
+
 
   return (
-    <div className="transition-container">
-      <CSSTransition
-        in={loading}
-        timeout={1000}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Spinner />
-      </CSSTransition>
-      <CSSTransition
-        in={!loading}
-        timeout={1000}
-        classNames="fade"
-        unmountOnExit
-      >
-        <NextComponent />
-      </CSSTransition>
+    <div className="fuentes">
+      <button className="btn btn-primary" onClick={openModal}>
+        Agregar Fuente
+      </button>
+      <ul>
+        {fuentes.map(fuente => (
+          <li key={fuente.id_fuente}
+            onDoubleClick={() => handleEditFuente(fuente)}
+          >
+            {console.log(fuente)}
+          {fuente.cita}
+          </li>
+        ))}
+      </ul>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <AddFuenteForm fuente={currentFuente} setFuente={setCurrentFuente} onSubmit={handleAddFuente} onClose={closeModal} />
+        </Modal>
+      )}
     </div>
   );
 };
 
-export default LoaderWithTransition;
+export default Fuentes;

@@ -7,3 +7,8 @@ export * from './seriacionesActions';
 export * from './allCursosActions';
 export * from './objetivosActions';
 export * from './unidadesActions';
+export * from './evaluacionesActions';
+export * from './colaboradoresActions';
+export * from './fuentesActions';
+export * from './selectedFuenteTypeActions';
+export * from './autoresActions';

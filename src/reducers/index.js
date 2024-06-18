@@ -8,7 +8,11 @@ import allCoursesReducer from './allCursosReducer';
 import seriacionesReducer from './seriacionesReducer';
 import objetivosReducer from './objetivosReducer';
 import unidadesReducer from './unidadesReducer';
-
+import evaluacionesReducer from './evaluacionesReducer';
+import colaboradoresReducer from './colaboradoresReducer';
+import fuentesReducer from './fuentesReducer';
+import selectedFuenteTypeReducer from './selectedFuenteType';
+import autoresReducer from './autoresReducer';
 
 
 const rootReducer = combineReducers({
@@ -20,7 +24,12 @@ const rootReducer = combineReducers({
   allCourses: allCoursesReducer,
   seriaciones: seriacionesReducer,
   objetivos: objetivosReducer,
-  unidades: unidadesReducer
+  unidades: unidadesReducer,
+  evaluacion: evaluacionesReducer,
+  colaboradores: colaboradoresReducer,
+  fuentes: fuentesReducer,
+  selectedFuenteType: selectedFuenteTypeReducer,
+  autores: autoresReducer
 });
 
 

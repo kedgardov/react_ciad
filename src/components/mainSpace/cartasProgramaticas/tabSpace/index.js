@@ -4,8 +4,8 @@ import General from './general';
 import Fuentes from './fuentes';
 import Objetivos from './objetivos';
 import Contenido from './contenido';
-
-
+import Evaluacion from './evaluacion';
+import Coolaboradores from './colaboradores';
 
 const TabContent = () => {
   const selectedTab = useSelector(state => state.tabSpace.spaceType);
@@ -16,7 +16,6 @@ const TabContent = () => {
     }
     if(selectedTab === 'general'){
       return <General />;
-      //return <div>Selected the general tab</div>;
     }
     if(selectedTab === 'objetivos'){
       return <Objetivos/>;
@@ -24,11 +23,14 @@ const TabContent = () => {
     if(selectedTab === 'contenido'){
       return <Contenido/>;
     }
-    if(selectedTab === 'unidades'){
-      return <div>Selected the unidades tab</div>;
+    if(selectedTab === 'coolaboradores'){
+      return <Coolaboradores/>;
     }
     if(selectedTab === 'fuentes'){
       return <Fuentes />;
+    }
+    if(selectedTab === 'evaluacion'){
+      return <Evaluacion/>;
     }
 
     return <div>Something Went Wrong</div>;

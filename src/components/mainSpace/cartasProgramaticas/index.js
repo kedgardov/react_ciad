@@ -28,7 +28,9 @@ const Detalles = () => {
         {createTab('general', handleSelectTab)}
         {createTab('objetivos',handleSelectTab)}
         {createTab('contenido',handleSelectTab)}
+        {createTab('evaluacion',handleSelectTab)}
         {createTab('fuentes', handleSelectTab)}
+        {createTab('coolaboradores',handleSelectTab)}
       </ul>
       <TabSpace />
     </div>
