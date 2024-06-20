@@ -54,7 +54,7 @@ const Navbar = () => {
       </form>
 
       <div className="navbar ml-auto d-flex align-items-center">
-        <p className="mb-0 mr-3"><strong>{user ? user.docente : 'Nombre del Profesor'}</strong></p>
+        <p className="mb-0 mr-3"><strong>{user ? user.name : ''}</strong></p>
         <button className="btn btn-link" onClick={handleLogout}>
           <i className="fas fa-sign-out-alt"></i> Logout
         </button>

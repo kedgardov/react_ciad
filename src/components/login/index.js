@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { setMainSpace } from '../../actions/mainSpaceActions';
 import { createSession } from '../../actions/sessionActions';
 import './Login.css';
 
@@ -18,6 +19,7 @@ const Login = () => {
 
         if (result.success) {
             setMessage('Login successful');
+            dispatch(setMainSpace('mis_cursos',null));
             navigate('/');
         } else {
             setMessage(result.message || 'Invalid username or password');

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setMainSpace, getAllCourses ,fetchCurso } from '../../actions';
+import { setMainSpace, fetchCurso } from '../../actions';
 
 
 const SidebarCursos = () => {
@@ -11,16 +11,9 @@ const SidebarCursos = () => {
     dispatch(fetchCurso(data));
   };
 
-  //const cursos = useSelector((state => state.sidebarCourses.courses));
-  const cursos = useSelector((state => state.allCourses.courses));
+  const sidebar_cursos = useSelector((state => state.sidebarCourses.courses));
 
-  console.log(cursos);
-
-  useEffect(() => {
-    dispatch(getAllCourses());
-  }, [dispatch]);
-
-  if (!cursos || cursos.length === 0) {
+  if (!sidebar_cursos || sidebar_cursos.length === 0) {
     // Display a loading message or fallback UI while courses are being fetched
     return (
       <li className="nav-item">
@@ -29,7 +22,8 @@ const SidebarCursos = () => {
         </a>
         <div id="collapseCursos" className="collapse" aria-labelledby="headingCursos" data-parent="#accordionSidebar">
           <div className="bg-white py-2 collapse-inner rounded" id="sidebar-cursos-placeholder">
-            <a>
+            <a
+              className="collapse-item">
               Loading Courses...
             </a>
           </div>
@@ -45,7 +39,7 @@ const SidebarCursos = () => {
       </a>
       <div id="collapseCursos" className="collapse" aria-labelledby="headingCursos" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded" id="sidebar-cursos-placeholder">
-          {cursos.map((curso) => (
+          {sidebar_cursos.map((curso) => (
             <a
               key={curso.clave}
               className="collapse-item"

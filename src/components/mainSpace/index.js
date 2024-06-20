@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import CartasProgramaticas from './cartasProgramaticas';
 import Configuraciones from './configuraciones';
+import MisCursos from './misCursos';
+
 import './index.css';
 
 
@@ -17,6 +19,9 @@ const MainContent = () => {
     }
     if (mainSpaceContent.spaceType === 'config') {
       return <Configuraciones/>
+    }
+    if (mainSpaceContent.spaceType === 'mis_cursos'){
+      return <MisCursos/>;
     }
     return <div>Unknown Selection</div>;
   };
